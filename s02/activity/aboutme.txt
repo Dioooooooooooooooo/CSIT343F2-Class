@@ -4,3 +4,6 @@ Nickname: dio ! ! !
 
 My motivation for joining the bootcamp is to have a solid foundation in web development...
 
+
+Experience:
+I try to make a micro mouse from scratch, it's been ongoing but it should be done by march...

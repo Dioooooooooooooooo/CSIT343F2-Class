@@ -19,7 +19,7 @@
 
 console.log("User Profile");
 
-let firstName = "Joe";
+let firstName = "John";
 console.log(firstName);
 
 let lastName = "Smith";
@@ -43,7 +43,7 @@ let fullName = "Steve Rogers";
 console.log("My real name is:");
 console.log(fullName);
 
-let currentAge = true;
+let currentAge = 40;
 console.log("My current age is: ");
 console.log(currentAge);
 

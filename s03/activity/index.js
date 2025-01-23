@@ -17,14 +17,31 @@
         - address
 */
 
+console.log("User Profile");
+
+let firstName = "Joe";
+console.log(firstName);
+
+let lastName = "Smith";
+console.log(lastName);
+
+let age = 30;
+console.log(age);
+
+let mobileNumber = "09162103021";
+console.log(mobileNumber);
+
+let address = "Cainta, Rizal";
+console.log(address);
+console.log(" ");
 /*
 5. Identify and implement the best practices of creating and using variables by avoiding errors and debugging the following codes. 
     - Log the values of each variable to follow/mimic the output.
 */
 
-let firstName = "Steve Rogers";
+let fullName = "Steve Rogers";
 console.log("My real name is:");
-console.log(firstName);
+console.log(fullName);
 
 let currentAge = true;
 console.log("My current age is: ");

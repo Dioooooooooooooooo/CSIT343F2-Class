@@ -129,3 +129,9 @@ function getPrimeNumberArray() {
 }
 
 getPrimeNumberArray();
+
+/*
+9. Add your changes.
+10. Commit your changes with a concise, imperative statement describing the change. Example: "Added solution for the s07 activity".
+11. Add your s07 git repository link for your submission.
+*/

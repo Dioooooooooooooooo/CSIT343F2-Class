@@ -112,6 +112,7 @@ function getMoviesArray() {
 }
 
 getMoviesArray();
+
 /*
     8. Create a function named getPrimeNumberArray which is able to log an array with at least 5 prime numbers.
 

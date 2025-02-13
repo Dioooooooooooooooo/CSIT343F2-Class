@@ -64,6 +64,6 @@ function getSeason(month) {
     case "november":
       return "Fall";
     default:
-      return "Invalid month. Please enter a valid month name.";
+      return "Invalid month.";
   }
 }

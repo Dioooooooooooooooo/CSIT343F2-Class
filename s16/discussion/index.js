@@ -103,3 +103,5 @@ function isAllDivisibleBy5(array) {
 }
 
 console.log(isAllDivisibleBy5(numArr));
+
+// for commit message in s17

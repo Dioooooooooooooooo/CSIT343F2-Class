@@ -1,4 +1,4 @@
-// console.log("Hello World");
+console.log("Hello World");
 
 // [SECTION] Array Mutators (Sort, Fill, CopyWithin, Reverse)
 

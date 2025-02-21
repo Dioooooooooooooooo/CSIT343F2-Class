@@ -7,7 +7,7 @@
 
 
 */
-
+console.log("Hello World");
 
 /*
     
@@ -26,8 +26,13 @@
     7. Log the final state of the loot array.
 */
 
-
-
+let loot = ["gold", "silver", "bronze", "emerald", "diamond"];
+//console.log("before Mutator methods: " + loot);
+loot.sort();
+console.log("Sorted loot: ", loot.sort());
+console.log("Reversed loot: ", loot.reverse());
+console.log("Copied loot: ", loot.copyWithin(0, 3, 5));
+console.log("Final loot: ", loot.fill("unknown", 2, 5));
 
 /* 
 
@@ -45,60 +50,56 @@
 let numbers = [1, 2, 3, 4, 6, 8, 9, 10, 12, 13, 20, 25];
 
 function returnEvenNumbers(arr) {
+  if (arr.length === 0) {
+    return "The array is empty.";
+  }
 
-    if (arr.length === 0) {
-        return "The array is empty.";
-    }
+  let isAllNumbers = arr.every((num) => typeof num === "number");
 
-    let isAllNumbers = arr.every(num => typeOf num = "Number")
+  if (isAllNumbers === false) {
+    return "The array does not contain all numbers.";
+  }
 
-    if(isAllNumbers += false){
-        return "The array does not contain all numbers."
-    }
+  let isAllPositiveIntegers = arr.every((num) => num > 0);
 
-    let isAllPositiveIntegers = arr...some(num => num > 0)
+  if (isAllPositiveIntegers === false) {
+    return "The array does not contain all positive integers.";
+  }
 
-    if(isAllPositiveIntegers === false){
-        return "The array does not contain all positive integers."
-    }
-
-    return arr.find(num => num / 2 = 0);
-
+  return arr.filter((num) => num % 2 === 0);
 }
 
-let messageIfEmptyArr = findEvenNumber([]);
-console.log("Message if the array is empty:")
+let messageIfEmptyArr = returnEvenNumbers([]);
+console.log("Message if the array is empty:");
 console.log(messageIfEmptyArr);
 
-let messageIfNotAllNumbers = findEvenNumber([1, 2, 3, "25", 4]);
-console.log("Message if the array does not contain all number data type:")
+let messageIfNotAllNumbers = returnEvenNumbers([1, 2, 3, "25", 4]);
+console.log("Message if the array does not contain all number data type:");
 console.log(messageIfNotAllNumbers);
 
-
-let messageIfNotAllPositiveIntegers = findEvenNumber([1, 2, 3, -25, 4]);
-console.log("Message if the array does not contain all positive integers:")
+let messageIfNotAllPositiveIntegers = returnEvenNumbers([1, 2, 3, -25, 4]);
+console.log("Message if the array does not contain all positive integers:");
 console.log(messageIfNotAllPositiveIntegers);
 
-let evenNumbers = findEvenNumber(numbers);
-console.log("Even numbers in the array:")
-console.log(evenNumbers);
-
+let evenNumbers = returnEvenNumbers(numbers);
+console.log("Even numbers in the array: ", evenNumbers);
 
 function findIndex(arr, num) {
+  if (Array.isArray(arr) === false) {
+    return "Error: First argument must be an array";
+  }
 
-    if (Array.isArray(arr) === "false") {
-        return "Error: First argument must be an array";
-    }
+  if (typeof num !== "number") {
+    return "Error: Second argument must be a number";
+  }
 
-    if (typeof number !== 'number') {
-        return "Error: Second argument must be a number";
-    }
-
-    return arr.find(number);
-
+  return arr.findIndex((element) => element === num);
 }
 
-let messageIfFirstArgumentNotArray = findIndex({element1:1, element2: 2, element3: 3}, 3);
+let messageIfFirstArgumentNotArray = findIndex(
+  { element1: 1, element2: 2, element3: 3 },
+  3
+);
 console.log(messageIfFirstArgumentNotArray);
 
 let messageIfSecondArgumentNotNumber = findIndex(numbers, "3");
@@ -106,5 +107,3 @@ console.log(messageIfSecondArgumentNotNumber);
 
 let index = findIndex(numbers, 3);
 console.log(index);
-
-

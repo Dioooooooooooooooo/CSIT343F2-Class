@@ -1,70 +1,181 @@
-/* 
-    1. In the s20 folder, create an activity folder, an index.html file inside of it and link the index.js file.
-    2. Create an index.js file and console log the message Hello World to ensure that the script file is properly associated with the html file.
-    3. Copy the activity code and instructions from your Instructor into your index.js.
-*/
+console.log("Hello World");
+
+// [SECTION] Iteration Methods
+// loops designed to perform repetitive tasks on arrays
+// forEach, map, filter, find, reduce, some, every
+// loops over all items/index in an array
+
+// forEach()
+// Similar to a for loop that iterattes on each array element
+// forEach() does not return a new array
+let allTasks = [
+  "drink html",
+  "eat javascript",
+  "inhale css",
+  "breathe sass",
+  "get git",
+  "be node",
+];
+
+allTasks.forEach(function (task) {
+  console.log(task);
+});
+
+// filter tasks with length greater than 10 characters
+
+let filteredTasks = [];
+
+allTasks.forEach(function (task) {
+  if (task.length > 10) {
+    filteredTasks.push(task);
+  }
+});
+
+console.log("Filtered Tasks: ", filteredTasks);
+
+// We want to identify all the admin accounts from the users array
+
+let users = [
+  {
+    username: "peterSmith",
+    isAdmin: false,
+  },
+  {
+    username: "andrewJones99",
+    isAdmin: true,
+  },
+  {
+    username: "alexMartin",
+    isAdmin: false,
+  },
+  {
+    username: "smithyS",
+    isAdmin: true,
+  },
+];
+
+let adminList = [];
+
+users.forEach((user) => {
+  console.log(user);
+
+  if (user.isAdmin === true) {
+    adminList.push(user.username);
+  }
+});
+
+console.log(adminList);
+console.log(users);
+
+// map()
+// Iterates on each element and returns a new array with different values depending on the
+// result of the function's operation
+
+let numbers = [1, 2, 3, 4, 5];
+let numberMap = numbers.map((number) => number * number); // [1, 4, 9, 16, 25]
+
+console.log("Original Array:");
+console.log(numbers);
+console.log("Mapped Array:");
+console.log(numberMap);
+
+// map() vs forEach()
+
+let numberForEach = numbers.forEach((number) => number * number);
+console.log("Result of forEach():", numberForEach); // undefined
+
+// every()
+// returns true if all elements in the array pass the test
+// otherwise, it returns false
+
+let grades = [89, 85, 89, 90, 74];
+
+let allPassingGrade = grades.every(function (grade) {
+  console.log(grade);
+  return grade >= 75;
+});
+
+console.log("Result of every method:");
+console.log(allPassingGrade);
+
+// filter()
+// Returns a new array that contains each elements which meets the given condition
+
+let filterValid = numbers.filter((number) => number < 3);
+console.log("Result of filter method: ");
+console.log(filterValid);
+
+let nothingFound = numbers.filter((number) => number === 10);
+console.log(nothingFound);
+
+let movies = [
+  {
+    name: "The Godfather",
+    rating: 5,
+  },
+  {
+    name: "Star Wars IV: A New Hope",
+    rating: 4,
+  },
+  {
+    name: "Schindler's List",
+    rating: 5,
+  },
+];
+
+let fiveStarMovies = movies.filter(function (movie) {
+  console.log(movie);
+
+  return movie.rating === 5;
+});
+
+console.log(fiveStarMovies);
 
 /*
-    Create functions which can manipulate our arrays.
+    Mini Activity (5 mins)
+    
+    1. Create an array named `students` containing objects with the following properties:
+       - name (string)
+       - score (number)
+       - attendance (boolean) → true if the student attended all sessions, false otherwise
+
+       const students = [
+           { name: "Alice", score: 85, attendance: true },
+           { name: "Bob", score: 72, attendance: false },
+           { name: "Charlie", score: 90, attendance: true },
+           { name: "David", score: 60, attendance: true },
+           { name: "Eve", score: 78, attendance: false }
+       ];
+
+    2. Find students who:
+       - Scored at least 80
+       - AND attended all sessions (attendance: true)
+
+    3. Return an array of messages in the following format:
+       - <student_name> has complete attendance and passed with a score of <score>.
+
+    4. Print the final result.
+
+    5. Take a screenshot of the console output and send it in the chat.
+
+    Expected output:
+    [
+        "Alice has complete attendance and passed with a score of 85.",
+        "Charlie has complete attendance and passed with a score of 90."
+    ]
 */
-/*
-    4. Create a function called displayValues() which is able to receive an array of numbers and display cubed values in the console.
-        - Use the forEach() method to print the square of each number on a new line.
-*/
-function displayValues(values) {
-  values.forEach((value) => {
-    console.log(value ** 3);
+const students = [
+  { name: "Alice", score: 85, attendance: true },
+  { name: "Bob", score: 72, attendance: false },
+  { name: "Charlie", score: 90, attendance: true },
+  { name: "David", score: 60, attendance: true },
+  { name: "Eve", score: 78, attendance: false },
+];
+
+students
+  .filter((student) => student.score >= 80 && student.attendance === true)
+  .forEach((student) => {
+    console.log(
+      `${student.name} has complete attendance and passed with a score of ${student.score}.`
+    );
   });
-}
-
-/* Don't Modify For Testing*/
-console.log("Result of displayValues function");
-console.log(displayValues([1, 2, 3, 4, 5]));
-
-/*
-  5. Write a function called celsiusToFahrenheit that takes an array of Celsius temperatures as input returns an array of converted values to Fahrenheit.
-      - Create a new variable inside the function called convertedArray.
-      - Use the map() method to convert each temperature to Fahrenheit and save it into the variable. 
-      - return the convertedArray variable.
-*/
-
-function celsiusToFahrenheit(celsius) {
-  let convertedArray = celsius.map((c) => c * (9 / 5) + 32);
-  return convertedArray;
-}
-
-/* Don't Modify For Testing*/
-console.log("Result of celsiusToFahrenheit function");
-console.log(celsiusToFahrenheit([10, 20, 30, 40, 50]));
-/*
-  6. Write a function called areAllEven that takes an array of numbers as input and returns a boolean which determines if all the numbers given are even or not.
-      - Create a new variable inside the function called isEven.
-      - Use the every() method to check if all the numbers are even and save the result into the variable. 
-      - Return the isEven variable.
-
-*/
-
-function areAllEven(numbers) {
-  let isEven = numbers.every((n) => n % 2 === 0);
-  return isEven;
-}
-
-/* Don't Modify For Testing*/
-console.log("Result of areAllEven function");
-console.log(areAllEven([2, 4, 6, 8, 10]));
-/*
-  7. Write a function called hasDivisibleBy8 that takes an array of numbers as input returns a boolean which determines if the array contains at least one number divisible by 8.
-  - Create a new variable called hasDivisible
-  - Use the some() method to check if at least one of the given values is divisible by 8, save the result in the hasDivisible variable.
-      - Look up the use of the some() method
-  - Return the hasDivisible variable.
-
-*/
-function hasDivisibleBy8(numbers) {
-  let hasDivisible = numbers.some((n) => n % 8 === 0);
-  return hasDivisible;
-}
-
-/* Don't Modify For Testing*/
-console.log("Result of hasDivisibleBy8 function");
-console.log(hasDivisibleBy8([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));

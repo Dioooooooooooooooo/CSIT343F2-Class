@@ -85,3 +85,47 @@ document
         console.log(data);
       });
   });
+
+let postIdInput = document.getElementById("txt-post-id");
+let viewButton = document.querySelector("#form-view-post button");
+let title = document.getElementById("post-title");
+let body = document.getElementById("post-body");
+postIdInput.addEventListener("input", function () {
+  viewButton.disabled = postIdInput.value.trim() === "";
+});
+
+document
+  .getElementById("form-view-post")
+  .addEventListener("submit", function (event) {
+    console.log(event);
+    event.preventDefault(); // prevent the default action of the form
+
+    console.log(postIdInput.value);
+
+    fetch("https://jsonplaceholder.typicode.com/posts/" + postIdInput.value, {
+      method: "GET",
+
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+
+        if (!data.title || !data.body) {
+          title.innerHTML = "";
+          body.innerHTML = "Post not found";
+          return;
+        }
+
+        title.innerHTML = data.title;
+        body.innerHTML = data.body;
+      })
+      .finally(function () {
+        postIdInput.value = "";
+        viewButton.disabled = true;
+      });
+  });

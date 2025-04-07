@@ -98,7 +98,7 @@ document
   .getElementById("form-view-post")
   .addEventListener("submit", function (event) {
     console.log(event);
-    event.preventDefault(); // prevent the default action of the form
+    event.preventDefault();
 
     console.log(postIdInput.value);
 
